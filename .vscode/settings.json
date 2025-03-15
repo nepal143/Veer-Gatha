@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Veer Gatha.sln"
+    "dotnet.defaultSolution": "Veer-Gatha.sln"
 }
