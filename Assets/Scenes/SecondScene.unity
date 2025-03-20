@@ -750,7 +750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c5d068db81b1cd045806c2c8b0973818, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef21faca2f1a5c746aa4d77bc9eb31c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -911,8 +911,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1221,6 +1221,8 @@ PlayableDirector:
     value: {fileID: 2071538453}
   - key: {fileID: 8300112394882235148, guid: e087a77b9e7123b4caa940e7e63b94ca, type: 2}
     value: {fileID: 559866664}
+  - key: {fileID: 8055371830073888181, guid: e087a77b9e7123b4caa940e7e63b94ca, type: 2}
+    value: {fileID: 848407821}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &920418217
