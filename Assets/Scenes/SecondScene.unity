@@ -778,8 +778,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.8801, y: 10.924}
-  m_SizeDelta: {x: 715.522, y: 71.848}
+  m_AnchoredPosition: {x: -2.8801, y: 15.0496}
+  m_SizeDelta: {x: 715.522, y: 63.5968}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850529075
 MonoBehaviour:
@@ -801,7 +801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'this is everything man '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -810,8 +810,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -823,13 +823,13 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 93368250
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1358,6 +1358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1224259808}
+  - component: {fileID: 1224259809}
   m_Layer: 0
   m_Name: subtitle
   m_TagString: Untagged
@@ -1380,6 +1381,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1224259809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224259807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73343a1638eb15447962ea449571bf8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subtitles:
+  - englishText: Angaraj, prepare yourself for the duel.
+    displayTime: 5
+  - englishText: I was waiting for you, Arjun!
+    displayTime: 3
+  - englishText: From the day you first showcased your art in Hastinapur, I have
+      been waiting for you.
+    displayTime: 9
+  - englishText: So that I can prove my excellence.
+    displayTime: 3
+  - englishText: I have waited my whole life for such a perfect opportunity.
+    displayTime: 6
+  - englishText: Effort is more beneficial than waiting, Angraj.
+    displayTime: 4
+  - englishText: False, Prince!
+    displayTime: 2
+  - englishText: If a mouse tries to fly upon seeing a bird, what benefit does it
+      gain?
+    displayTime: 6
+  - englishText: If it keeps waiting on the path, one day, Garuda will seize it in
+      its claws and fly away.
+    displayTime: 10
+  - englishText: That day, even the mouse benefits from flying.
+    displayTime: 4
+  - englishText: Just as today, you are giving this son of a charioteer the benefit
+      of picking up the bow.
+    displayTime: 7
+  - englishText: Think carefully before calling me weak, Minister!
+    displayTime: 7
+  - englishText: Is the one who makes others use divine weapons and sacrifices his
+      nephew truly powerful? Or is the man who removes his own armor and earrings
+      to give them away even more powerful?
+    displayTime: 15
+  - englishText: You had requested special weapons from the gods to slay me, Angraj.
+    displayTime: 7
+  - englishText: But to slay you, Angraj, I did not seek any divine gifts! I can
+      defeat you with any ordinary weapon.
+    displayTime: 12
+  - englishText: Pick up your bow, Arjun! As long as my victorious bow is in my hands,
+      not a single one of your arrows can even touch my body. Pick up your bow!
+    displayTime: 9
+  subtitleText: {fileID: 850529075}
+  fadeDuration: 0.5
 --- !u!1 &1501475892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,9 +1817,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a666933aa63a50a47a897983bdd87b41, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.273
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

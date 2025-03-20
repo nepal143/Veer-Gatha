@@ -7,7 +7,6 @@ public class SubtitleManager : MonoBehaviour
     [System.Serializable]
     public class Subtitle
     {
-        public string hindiText;
         public string englishText;
         public float displayTime; // Time in seconds
     }   
@@ -25,19 +24,21 @@ public class SubtitleManager : MonoBehaviour
     {
         foreach (var subtitle in subtitles)
         {
-            yield return StartCoroutine(ShowSubtitle(subtitle.hindiText + "\n" + subtitle.englishText, subtitle.displayTime));
+            yield return StartCoroutine(ShowSubtitle(subtitle.englishText, subtitle.displayTime));
         }
         
         subtitleText.text = ""; // Clear text after all subtitles
     }
 
-    private IEnumerator ShowSubtitle(string text, float duration)
+    private IEnumerator ShowSubtitle(string text, float totalDuration)
     {
+        float effectiveDisplayTime = Mathf.Max(0, totalDuration - (2 * fadeDuration));
+        
         subtitleText.text = text;
-        subtitleText.alpha = 0; // Start fully transparent
-        subtitleText.transform.localScale = Vector3.one * 0.8f; // Start slightly smaller
+        subtitleText.alpha = 0;
+        subtitleText.transform.localScale = Vector3.one * 0.8f;
 
-        // Fade-in and scale-up animation
+        // Fade-in animation
         float timer = 0;
         while (timer < fadeDuration)
         {
@@ -48,7 +49,7 @@ public class SubtitleManager : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(duration); // Wait for the subtitle display duration
+        yield return new WaitForSeconds(effectiveDisplayTime); // Adjusted display duration
 
         // Fade-out animation
         timer = 0;
