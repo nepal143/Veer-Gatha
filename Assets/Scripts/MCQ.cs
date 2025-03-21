@@ -18,6 +18,7 @@ public class QnAManager : MonoBehaviour
     public TextMeshProUGUI[] optionTexts;
     public Button[] optionButtons;
     public GameObject quizPanel;
+    public GameObject resultPanel;
     public Button startButton;
     
     private int currentQuestionIndex;
@@ -25,6 +26,7 @@ public class QnAManager : MonoBehaviour
     void Start()
     {
         quizPanel.SetActive(false);
+        resultPanel.SetActive(false);
         startButton.onClick.AddListener(StartQuiz);
     }
 
@@ -32,6 +34,7 @@ public class QnAManager : MonoBehaviour
     {
         startButton.gameObject.SetActive(false);
         quizPanel.SetActive(true);
+        resultPanel.SetActive(false);
         currentQuestionIndex = 0;
         LoadQuestion();
     }
@@ -40,7 +43,7 @@ public class QnAManager : MonoBehaviour
     {
         if (currentQuestionIndex >= questions.Length)
         {
-            Debug.Log("Quiz Completed");
+            EndQuiz();
             return;
         }
         
@@ -79,5 +82,12 @@ public class QnAManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         currentQuestionIndex++;
         LoadQuestion();
+    }
+
+    void EndQuiz()
+    {
+        quizPanel.SetActive(false);
+        resultPanel.SetActive(true);
+        Debug.Log("Quiz Completed");
     }
 }
