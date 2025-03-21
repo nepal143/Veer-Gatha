@@ -431,20 +431,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questions:
-  - questionText: 123123123
+  - questionText: Why has Karna been waiting for Arjun for so long?
     options:
-    - afsdasdf
-    - sdfsddddd
-    - dddddd
-    - ffffff
-    correctAnswerIndex: 2
-  - questionText: sdddsdsdsddddd
-    options:
-    - 234234234
-    - 234234234
-    - werwewewe
-    - errfrrwerwerwer
+    - To prove his superiority in battle
+    - To seek revenge for past insults
+    - "To ask for Arjun\u2019s forgiveness"
+    - To offer him a truce
     correctAnswerIndex: 0
+  - questionText: ' What does Arjun believe is more beneficial than waiting?'
+    options:
+    - Seeking blessings from elders
+    - Continuous effort and action
+    - Learning from past defeats
+    - Gaining divine weapons
+    correctAnswerIndex: 1
+  - questionText: " What analogy does Karna\u2019s charioteer use to mock Arjun?"
+    options:
+    - A fish trying to climb a tree
+    - A mouse trying to fly like a bird
+    - A deer challenging a lion
+    - A turtle racing against a horse
+    correctAnswerIndex: 1
+  - questionText: What does Arjun say about defeating Karna?
+    options:
+    - He needs divine weapons to do so
+    - He can defeat Karna with ordinary weapons
+    - He does not want to fight Karna
+    - "He fears Karna\u2019s strength"
+    correctAnswerIndex: 1
+  - questionText: What does Karna say makes a man truly strong?
+    options:
+    - Using divine weapons in battle
+    - "Sacrificing one\u2019s own protection for righteousness"
+    - Being born into a royal family
+    - Winning battles through clever strategies
+    correctAnswerIndex: 1
   questionText: {fileID: 1729606356}
   optionTexts:
   - {fileID: 917059190}

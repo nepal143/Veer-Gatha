@@ -1201,20 +1201,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questions:
-  - questionText: 123123123
+  - questionText: What does Karna say will happen if his chariot wheel comes out
+      of the ground?
     options:
-    - afsdasdf
-    - sdfsddddd
-    - dddddd
-    - ffffff
-    correctAnswerIndex: 2
-  - questionText: sdddsdsdsddddd
+    - He will surrender to Arjun
+    - The course of time will change
+    - The battle will end immediately
+    - He will stop fighting
+    correctAnswerIndex: 1
+  - questionText: Why does Karna continue to struggle despite his chariot being stuck?
     options:
-    - 234234234
-    - 234234234
-    - werwewewe
-    - errfrrwerwerwer
-    correctAnswerIndex: 0
+    - He hopes to escape the battlefield
+    - He is a warrior, and it is his duty to fight till the end
+    - He believes he will receive divine help
+    - "He wants to delay Arjun\u2019s attack"
+    correctAnswerIndex: 1
+  - questionText: Why does Karna ask Arjun to kill him before sunset?
+    options:
+    - He does not want to fight after sunset
+    - He wishes to reunite with his father after death
+    - He knows he cannot win the battle
+    - He wants to avoid suffering
+    correctAnswerIndex: 1
+  - questionText: ' What does Shri Krishna urge Arjun to do?'
+    options:
+    - "Spare Karna\u2019s life"
+    - Take advantage of the moment and kill Karna
+    - Wait until sunset to fight fairly
+    - Help Karna remove his chariot wheel
+    correctAnswerIndex: 1
   questionText: {fileID: 702696944}
   optionTexts:
   - {fileID: 1729940412}

@@ -685,20 +685,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questions:
-  - questionText: 123123123
+  - questionText: Who is Arjun's main opponent in the upcoming battle?
     options:
-    - afsdasdf
-    - sdfsddddd
-    - dddddd
-    - ffffff
+    - Bhishma
+    - Dronacharya
+    - Karna
+    - Duryodhana
     correctAnswerIndex: 2
-  - questionText: sdddsdsdsddddd
+  - questionText: According to Shri Krishna, what does victory in this battle bring?
     options:
-    - 234234234
-    - 234234234
-    - werwewewe
-    - errfrrwerwerwer
+    - Fame and respect
+    - Gold and wealth
+    - A new kingdom
+    - Blessings from the gods
     correctAnswerIndex: 0
+  - questionText: What does Arjun believe about a warrior's defeat?
+    options:
+    - It is a temporary setback
+    - It is equivalent to death
+    - It leads to dishonor but not death
+    - It strengthens one's resolve
+    correctAnswerIndex: 1
+  - questionText: According to Shri Krishna, why is Karna a formidable opponent?
+    options:
+    - He has divine weapons
+    - He fights with the strength of all Kauravas
+    - His entire life's struggle is reflected in his arrows
+    - "He has Dronacharya\u2019s blessings"
+    correctAnswerIndex: 2
+  - questionText: What does Arjun consider this battle to be about?
+    options:
+    - A personal rivalry
+    - A test of strength
+    - A battle between knowledge and struggle, righteousness and unrighteousness
+    - A chance to impress Shri Krishna
+    correctAnswerIndex: 2
   questionText: {fileID: 1227317874}
   optionTexts:
   - {fileID: 1678258959}

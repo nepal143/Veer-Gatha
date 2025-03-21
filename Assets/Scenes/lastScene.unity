@@ -1386,20 +1386,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questions:
-  - questionText: 123123123
+  - questionText: What does Shakuni accuse Karna of?
     options:
-    - afsdasdf
-    - sdfsddddd
-    - dddddd
-    - ffffff
-    correctAnswerIndex: 2
-  - questionText: sdddsdsdsddddd
-    options:
-    - 234234234
-    - 234234234
-    - werwewewe
-    - errfrrwerwerwer
+    - Betraying Duryodhan
+    - Running away from the battlefield
+    - Siding with the Pandavas
+    - Not fighting with full strength
     correctAnswerIndex: 0
+  - questionText: What does Nakul believe the sounds from the city indicate?
+    options:
+    - A new battle has begun
+    - Victory is being celebrated
+    - Karna has won the war
+    - The war has ended with a truce
+    correctAnswerIndex: 1
+  - questionText: Who do Nakul and Sahadev believe has died?
+    options:
+    - Duryodhan
+    - Karna
+    - Shakuni
+    - Abhimanyu
+    correctAnswerIndex: 1
+  - questionText: "Why does Bheem feel satisfied with Karna\u2019s death?"
+    options:
+    - Because Karna was a great warrior
+    - Because Karna insulted Draupadi
+    - Because Karna defeated him in battle
+    - Because Karna betrayed the Kauravas
+    correctAnswerIndex: 1
   questionText: {fileID: 1141815447}
   optionTexts:
   - {fileID: 2092548869}
