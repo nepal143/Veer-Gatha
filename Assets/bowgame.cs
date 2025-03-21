@@ -1,11 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DragToConnect : MonoBehaviour
 {
-    public RectTransform startPoint;  // Assign the UI Image at the starting position (fixed point on bow)
-    public RectTransform endPoint;    // Assign the UI Image at the endpoint (where the string should connect)
-    public RectTransform stringSprite; // Assign the UI Image that acts as the string
+    public Transform startPoint;  // Fixed bow point
+    public Transform endPoint;    // Where the string should attach
+    public LineRenderer stringLine; // The bowstring
+
+    public GameObject[] objectsToDisable; // Assign objects to disable after stringing the bow
+    public GameObject objectToEnable;     // Assign the object to enable
 
     private bool isDragging = false;
 
@@ -18,12 +20,10 @@ public class DragToConnect : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 mousePos = GetMousePosition();
-            
-            if (IsNear(mousePos, startPoint))
+            if (CheckClickOnObject(out Transform clickedObject) && clickedObject == startPoint)
             {
                 isDragging = true;
-                stringSprite.gameObject.SetActive(true);
+                stringLine.enabled = true;
             }
         }
 
@@ -31,16 +31,16 @@ public class DragToConnect : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                Vector2 mousePos = GetMousePosition();
-                UpdateString(mousePos);
+                Vector3 mouseWorldPos = GetMouseWorldPosition();
+                UpdateString(mouseWorldPos);
             }
+
             if (Input.GetMouseButtonUp(0))
             {
-                Vector2 mousePos = GetMousePosition();
-                
-                if (IsNear(mousePos, endPoint))
+                if (CheckClickOnObject(out Transform clickedObject) && clickedObject == endPoint)
                 {
-                    UpdateString(endPoint.anchoredPosition); // Snap to endPoint
+                    UpdateString(endPoint.position); // Snap to endPoint
+                    OnBowStringed(); // Perform enable/disable actions
                 }
                 else
                 {
@@ -51,37 +51,48 @@ public class DragToConnect : MonoBehaviour
         }
     }
 
-    void UpdateString(Vector2 targetPos)
+    void UpdateString(Vector3 targetPos)
     {
-        Vector2 direction = targetPos - startPoint.anchoredPosition;
-        float distance = direction.magnitude;
-
-        // Set width to match distance
-        stringSprite.sizeDelta = new Vector2(distance, stringSprite.sizeDelta.y);
-
-        // Anchor one end at startPoint
-        stringSprite.anchoredPosition = startPoint.anchoredPosition;
-
-        // Rotate string to match the angle
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        stringSprite.rotation = Quaternion.Euler(0, 0, angle);
+        stringLine.SetPosition(0, startPoint.position);
+        stringLine.SetPosition(1, targetPos);
     }
 
     void ResetString()
     {
-        stringSprite.sizeDelta = new Vector2(0, stringSprite.sizeDelta.y); // Hide the string
-        stringSprite.gameObject.SetActive(false);
+        stringLine.enabled = false;
     }
 
-    bool IsNear(Vector2 position, RectTransform target)
+    void OnBowStringed()
     {
-        return Vector2.Distance(position, target.anchoredPosition) < 30f; // Adjust as needed
+        // Disable objects
+        foreach (GameObject obj in objectsToDisable)
+        {
+            obj.SetActive(false);
+        }
+
+        // Enable the specified object
+        if (objectToEnable != null)
+        {
+            objectToEnable.SetActive(true);
+        }
     }
 
-    Vector2 GetMousePosition()
+    bool CheckClickOnObject(out Transform hitObject)
     {
-        Vector2 mousePos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(startPoint.parent as RectTransform, Input.mousePosition, null, out mousePos);
-        return mousePos;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            hitObject = hit.transform;
+            return true;
+        }
+        hitObject = null;
+        return false;
+    }
+
+    Vector3 GetMouseWorldPosition()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.WorldToScreenPoint(startPoint.position).z; // Maintain depth
+        return Camera.main.ScreenToWorldPoint(mousePos);
     }
 }
