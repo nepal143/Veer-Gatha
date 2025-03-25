@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/lastScene.unity
     guid: f0c6a7c9954c65b488c004bdaa010eca
+  - enabled: 1
+    path: Assets/Scenes/RATHYatra.unity
+    guid: 50785f63c2149af47863e87bdaa2da46
+  - enabled: 1
+    path: Assets/Scenes/BowGame.unity
+    guid: a88443294c19ab7488551a1068943c92
+  - enabled: 1
+    path: Assets/Scenes/battleField.unity
+    guid: 2459a0b38d2f970419d6d9ef0728668e
   m_configObjects: {}
