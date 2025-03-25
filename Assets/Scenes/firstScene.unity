@@ -260,8 +260,8 @@ RectTransform:
   m_GameObject: {fileID: 94607504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 308422262}
   m_Father: {fileID: 1348015325}
@@ -370,7 +370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &239202508
 RectTransform:
   m_ObjectHideFlags: 0
@@ -555,8 +555,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.20829773, y: 0}
+  m_SizeDelta: {x: -48.5675, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &308422263
 MonoBehaviour:
@@ -717,7 +717,7 @@ MonoBehaviour:
     options:
     - A personal rivalry
     - A test of strength
-    - A battle between knowledge and struggle, righteousness and unrighteousness
+    - righteousness and unrighteousness
     - A chance to impress Shri Krishna
     correctAnswerIndex: 2
   questionText: {fileID: 1227317874}
@@ -1061,8 +1061,8 @@ RectTransform:
   m_GameObject: {fileID: 876896851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2146123658}
   m_Father: {fileID: 1348015325}
@@ -1182,8 +1182,8 @@ RectTransform:
   m_GameObject: {fileID: 877875201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1145348553}
   m_Father: {fileID: 1348015325}
@@ -1527,8 +1527,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.46440125, y: 0}
+  m_SizeDelta: {x: -48.3269, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1145348554
 MonoBehaviour:
@@ -1999,8 +1999,8 @@ RectTransform:
   m_GameObject: {fileID: 1257612501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1678258958}
   m_Father: {fileID: 1348015325}
@@ -2352,7 +2352,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SecondScene
+          m_StringArgument: RATHYatra
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1409246503
@@ -2944,8 +2944,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.6362, y: 0}
+  m_SizeDelta: {x: -49.954, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1678258959
 MonoBehaviour:
@@ -3229,7 +3229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9137255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3356,8 +3356,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.62609863, y: 0}
+  m_SizeDelta: {x: -49.8028, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2146123659
 MonoBehaviour:
