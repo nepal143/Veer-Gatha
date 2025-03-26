@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Transform enemyTarget;
     public float fireCooldown = 2f;
     public float arrowForce = 20f;
+    public Image enemyHealthBar; // Reference to UI health bar
 
     private int playerCurrentHealth;
     private int enemyCurrentHealth;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
         playerCurrentHealth = playerMaxHealth;
         enemyCurrentHealth = enemyMaxHealth;
         fireButton.onClick.AddListener(FireArrow);
+
+        UpdateEnemyHealthBar();
     }
 
     void Update()
@@ -76,10 +79,20 @@ public class GameManager : MonoBehaviour
             enemyCurrentHealth = Mathf.Max(enemyCurrentHealth, 0);
             Debug.Log($"Enemy Health: {enemyCurrentHealth}");
 
+            UpdateEnemyHealthBar();
+
             if (enemyCurrentHealth <= 0)
             {
                 Debug.Log("Enemy has died.");
             }
+        }
+    }
+
+    void UpdateEnemyHealthBar()
+    {
+        if (enemyHealthBar != null)
+        {
+            enemyHealthBar.fillAmount = (float)enemyCurrentHealth / enemyMaxHealth;
         }
     }
 }

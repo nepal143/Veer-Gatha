@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AutoArrowShooter : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class AutoArrowShooter : MonoBehaviour
     public Transform enemyTarget;
     public float fireCooldown = 4f;
     public float arrowForce = 20f;
+    public Image enemyHealthBar;
+    public Image playerHealthBar; // Added player health bar
 
     private int playerCurrentHealth;
     private int enemyCurrentHealth;
@@ -20,6 +23,8 @@ public class AutoArrowShooter : MonoBehaviour
         playerCurrentHealth = playerMaxHealth;
         enemyCurrentHealth = enemyMaxHealth;
         InvokeRepeating(nameof(FireArrow), fireCooldown, fireCooldown);
+        UpdateEnemyHealthBar();
+        UpdatePlayerHealthBar(); // Update player health bar on start
     }
 
     void FireArrow()
@@ -35,16 +40,12 @@ public class AutoArrowShooter : MonoBehaviour
             rb.AddForce(direction * arrowForce, ForceMode.Impulse);
         }
 
+        Arrow arrowScript = arrow.AddComponent<Arrow>();
+        arrowScript.damage = arrowDamage;
+        arrowScript.shooter = this;
+
         // Destroy the arrow after 2 seconds
         Destroy(arrow, 2f);
-
-        // Delay the damage to enemy by 1.5 seconds
-        Invoke(nameof(DealEnemyDamage), 1.5f);
-    }
-
-    void DealEnemyDamage()
-    {
-        TakeDamage(false, arrowDamage);
     }
 
     public void TakeDamage(bool isPlayer, int damage)
@@ -54,6 +55,7 @@ public class AutoArrowShooter : MonoBehaviour
             playerCurrentHealth -= damage;
             playerCurrentHealth = Mathf.Max(playerCurrentHealth, 0);
             Debug.Log($"Player Health: {playerCurrentHealth}");
+            UpdatePlayerHealthBar(); // Update player health bar when damaged
 
             if (playerCurrentHealth <= 0)
             {
@@ -65,11 +67,43 @@ public class AutoArrowShooter : MonoBehaviour
             enemyCurrentHealth -= damage;
             enemyCurrentHealth = Mathf.Max(enemyCurrentHealth, 0);
             Debug.Log($"Enemy Health: {enemyCurrentHealth}");
+            UpdateEnemyHealthBar();
 
             if (enemyCurrentHealth <= 0)
             {
                 Debug.Log("Enemy has died.");
             }
+        }
+    }
+
+    void UpdateEnemyHealthBar()
+    {
+        if (enemyHealthBar != null)
+        {
+            enemyHealthBar.fillAmount = (float)enemyCurrentHealth / enemyMaxHealth;
+        }
+    }
+
+    void UpdatePlayerHealthBar() // Added function to update player health bar
+    {
+        if (playerHealthBar != null)
+        {
+            playerHealthBar.fillAmount = (float)playerCurrentHealth / playerMaxHealth;
+        }
+    }
+}
+
+public class Arrow : MonoBehaviour
+{
+    public int damage;
+    public AutoArrowShooter shooter;
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            shooter.TakeDamage(true, damage);
+            Destroy(gameObject);
         }
     }
 }
