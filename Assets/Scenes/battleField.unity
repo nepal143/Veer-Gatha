@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dodge Enemy Chariots and Find Karna
+  m_text: Fight Karna
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -526,6 +526,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7790708085426758021, guid: 6d30b66159ce1304293682768c580774, type: 3}
   m_PrefabInstance: {fileID: 470865044}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &470865046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 998902939250784628, guid: 6d30b66159ce1304293682768c580774, type: 3}
+  m_PrefabInstance: {fileID: 470865044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &470865047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9005883713221771576, guid: 6d30b66159ce1304293682768c580774, type: 3}
@@ -543,9 +548,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695f2612b28660549b3ea4ff67a664c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMaxHealth: 100
+  enemyMaxHealth: 100
+  arrowDamage: 10
   arrowPrefab: {fileID: 6979922883827971614, guid: 0abd145b7e6b05143bd5af2df54237e4, type: 3}
+  firePoint: {fileID: 470865046}
+  enemyTarget: {fileID: 1224995575}
+  fireCooldown: 4
   arrowForce: 20
-  destroyTime: 2
 --- !u!1 &540577505
 GameObject:
   m_ObjectHideFlags: 0

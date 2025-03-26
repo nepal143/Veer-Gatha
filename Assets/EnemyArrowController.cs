@@ -1,24 +1,75 @@
 using UnityEngine;
 
-public class EnemyArrowController : MonoBehaviour
+public class AutoArrowShooter : MonoBehaviour
 {
-    public GameObject arrowPrefab; // Arrow prefab to instantiate
+    public int playerMaxHealth = 100;
+    public int enemyMaxHealth = 100;
+    public int arrowDamage = 10;
+    public GameObject arrowPrefab;
+    public Transform firePoint;
+    public Transform enemyTarget;
+    public float fireCooldown = 4f;
     public float arrowForce = 20f;
-    public float destroyTime = 2f;
-    private Vector3 targetPosition;
 
-    public void Initialize(Vector3 target)
+    private int playerCurrentHealth;
+    private int enemyCurrentHealth;
+    private float lastFireTime;
+
+    void Start()
     {
-        targetPosition = target;
-        GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+        playerCurrentHealth = playerMaxHealth;
+        enemyCurrentHealth = enemyMaxHealth;
+        InvokeRepeating(nameof(FireArrow), fireCooldown, fireCooldown);
+    }
+
+    void FireArrow()
+    {
+        if (enemyTarget == null) return;
+
+        GameObject arrow = Instantiate(arrowPrefab, firePoint.position, Quaternion.identity);
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            Vector3 direction = (targetPosition - transform.position).normalized;
+            Vector3 direction = (enemyTarget.position - firePoint.position).normalized;
             direction.y += 0.3f; // Adjust for projectile arc
             rb.AddForce(direction * arrowForce, ForceMode.Impulse);
         }
 
-        Destroy(arrow, destroyTime);
+        // Destroy the arrow after 2 seconds
+        Destroy(arrow, 2f);
+
+        // Delay the damage to enemy by 1.5 seconds
+        Invoke(nameof(DealEnemyDamage), 1.5f);
     }
-} 
+
+    void DealEnemyDamage()
+    {
+        TakeDamage(false, arrowDamage);
+    }
+
+    public void TakeDamage(bool isPlayer, int damage)
+    {
+        if (isPlayer)
+        {
+            playerCurrentHealth -= damage;
+            playerCurrentHealth = Mathf.Max(playerCurrentHealth, 0);
+            Debug.Log($"Player Health: {playerCurrentHealth}");
+
+            if (playerCurrentHealth <= 0)
+            {
+                Debug.Log("Player has died.");
+            }
+        }
+        else
+        {
+            enemyCurrentHealth -= damage;
+            enemyCurrentHealth = Mathf.Max(enemyCurrentHealth, 0);
+            Debug.Log($"Enemy Health: {enemyCurrentHealth}");
+
+            if (enemyCurrentHealth <= 0)
+            {
+                Debug.Log("Enemy has died.");
+            }
+        }
+    }
+}
