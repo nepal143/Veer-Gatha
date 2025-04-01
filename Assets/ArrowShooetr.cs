@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
             direction.y += 0.3f; // Adjust for projectile arc
             rb.AddForce(direction * arrowForce, ForceMode.Impulse);
         }
-
         // Destroy the arrow after 2 seconds
         Destroy(arrow, 2f);
 
