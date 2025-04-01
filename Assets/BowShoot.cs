@@ -4,14 +4,16 @@ using UnityEngine.EventSystems;
 
 public class BowShoot : MonoBehaviour
 {
-    public GameObject arrowPrefab; // Arrow prefab to be instantiated
-    public Transform firePoint; // The firing point
-    public float maxShootForce = 25f; // Max force when fully held
-    public float maxHoldDuration = 3f; // Max duration for holding the button
-    public Button shootButton; // UI Button
+    public GameObject arrowPrefab; // Arrow prefab
+    public Transform firePoint; // Arrow firing position
+    public float maxShootForce = 25f; // Maximum shoot force
+    public float maxHoldDuration = 3f; // Maximum time to hold
 
-    private float holdTime = 0f; // Track how long the button is held
-    private bool isHolding = false; // Whether the button is currently being held down
+    public Button shootButton; // UI Shoot Button
+    public Image powerFillImage; // UI Image that fills & changes color
+
+    private float holdTime = 0f; // Track hold duration
+    private bool isHolding = false; // Whether the button is held
 
     void Start()
     {
@@ -23,6 +25,13 @@ public class BowShoot : MonoBehaviour
 
         // Add Pointer Up event
         AddEventTrigger(trigger, EventTriggerType.PointerUp, (eventData) => ReleaseAndShoot());
+
+        // Initialize UI Image
+        if (powerFillImage != null)
+        {
+            powerFillImage.fillAmount = 0f;
+            powerFillImage.color = Color.green; // Start as green
+        }
     }
 
     void Update()
@@ -31,6 +40,16 @@ public class BowShoot : MonoBehaviour
         {
             holdTime += Time.deltaTime;
             holdTime = Mathf.Clamp(holdTime, 0f, maxHoldDuration);
+
+            // Update UI fill amount (0 to 1)
+            if (powerFillImage != null)
+            {
+                float fillAmount = holdTime / maxHoldDuration;
+                powerFillImage.fillAmount = fillAmount;
+
+                // Lerp color from Green (low) to Red (max)
+                powerFillImage.color = Color.Lerp(Color.green, Color.red, fillAmount);
+            }
         }
     }
 
@@ -38,6 +57,7 @@ public class BowShoot : MonoBehaviour
     {
         isHolding = true;
         holdTime = 0f;
+
         Debug.Log("Button Pressed: Holding started.");
     }
 
@@ -47,6 +67,14 @@ public class BowShoot : MonoBehaviour
         {
             ShootArrow();
             isHolding = false;
+
+            // Reset UI fill
+            if (powerFillImage != null)
+            {
+                powerFillImage.fillAmount = 0f;
+                powerFillImage.color = Color.green;
+            }
+
             Debug.Log("Button Released: Shooting arrow.");
         }
     }
@@ -62,8 +90,8 @@ public class BowShoot : MonoBehaviour
             rb.AddForce(firePoint.forward * currentForce, ForceMode.Impulse);
         }
 
-        Debug.Log("Hold Time: " + holdTime + " seconds");
-        Debug.Log("Arrow Force: " + currentForce);
+        Debug.Log($"Hold Time: {holdTime} seconds");
+        Debug.Log($"Arrow Force: {currentForce}");
     }
 
     void AddEventTrigger(EventTrigger trigger, EventTriggerType eventType, System.Action<BaseEventData> action)
