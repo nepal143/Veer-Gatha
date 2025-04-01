@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/battleField.unity
     guid: 2459a0b38d2f970419d6d9ef0728668e
+  - enabled: 1
+    path: Assets/Scenes/OneMoreMiniGame.unity
+    guid: e7e58390b3395dc4cbee2b615921c492
   m_configObjects: {}
