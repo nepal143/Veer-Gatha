@@ -16,6 +16,17 @@ public class ArrowCollisions : MonoBehaviour
                 enemyAnimator.SetBool("die", true);
             }
 
+            // Move enemy's Y position to -0.7
+            Vector3 enemyPosition = collision.gameObject.transform.position;
+            // collision.gameObject.transform.position = new Vector3(enemyPosition.x, -0.7f, enemyPosition.z);
+
+            // Turn off the Main Camera
+            Camera mainCamera = Camera.main;
+            if (mainCamera != null)
+            {
+                mainCamera.gameObject.SetActive(false);
+            }
+
             // Wait for 2 seconds, then change the scene
             Invoke("ChangeScene", 2f);
         }
